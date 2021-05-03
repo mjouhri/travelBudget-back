@@ -20,7 +20,6 @@ public class TravelbudgetApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		String sql = "INSERT INTO trip (idtrip, name) VALUES(?,?)";
 		int result = jdbcTemplate.update(sql, "1","bali");
-
 		if (result > 0) System.out.println("A new row has been inserted");
 	}
 }
