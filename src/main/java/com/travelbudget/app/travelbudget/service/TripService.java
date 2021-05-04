@@ -27,4 +27,20 @@ public class TripService {
                 .collect(Collectors.toList());
     }
 
+    public TripDto getById(Long idTrip) {
+        return tripRepository.getById(idTrip).toDto();
+    }
+
+    public void create(TripDto tripDto) {
+        tripRepository.create(tripDto.toEntity());
+    }
+
+    public void update(TripDto tripDto) {
+        tripRepository.update(tripDto.toEntity());
+    }
+
+    public void delete(TripDto tripDto) {
+        tripRepository.delete(tripDto.toEntity());
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @Validated
-@RequestMapping(value = "/api/v1/trip")
+@RequestMapping(value = "/api/trips")
 public class TripController {
 
     private TripService tripService;
@@ -21,8 +21,32 @@ public class TripController {
 
     @CrossOrigin
     @GetMapping(value = "")
-    public List<TripDto> getAllWithFilters() {
+    public List<TripDto> getTrips() {
         return tripService.getTrips();
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/{id}")
+    public TripDto getById(HttpServletRequest request, @PathVariable Long id) {
+        return tripService.getById(id);
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/create")
+    public void create(HttpServletRequest request, @RequestBody TripDto tripDto) {
+        tripService.create(tripDto);
+    }
+
+    @CrossOrigin
+    @PutMapping(value = "/update")
+    public void update(HttpServletRequest request, @RequestBody TripDto tripDto) {
+        tripService.update(tripDto);
+    }
+
+    @CrossOrigin
+    @DeleteMapping(value = "/delete")
+    public void delete(HttpServletRequest request, @RequestBody TripDto tripDto) {
+        tripService.delete(tripDto);
     }
 
 }

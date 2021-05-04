@@ -1,16 +1,19 @@
 package com.travelbudget.app.travelbudget.dto;
 
+import com.travelbudget.app.travelbudget.model.Spend;
 import com.travelbudget.app.travelbudget.model.Trip;
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
  * trip
  */
-public class TripDto {
-    private Long idtrip;
+public class TripDto extends BaseDto{
+    private Long id;
     private String name;
+    private List<Spend> spends;
 
     /**
      * Constructeur par défaut.
@@ -29,12 +32,12 @@ public class TripDto {
         return modelMapper.map(this, Trip.class);
     }
 
-    public Long getIdtrip() {
-        return idtrip;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdtrip(Long idtrip) {
-        this.idtrip = idtrip;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,24 +48,32 @@ public class TripDto {
         this.name = name;
     }
 
+    public List<Spend> getSpends() {
+        return spends;
+    }
+
+    public void setSpends(List<Spend> spends) {
+        this.spends = spends;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TripDto tripDto = (TripDto) o;
-        return Objects.equals(idtrip, tripDto.idtrip) &&
+        return Objects.equals(id, tripDto.id) &&
                 Objects.equals(name, tripDto.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idtrip, name);
+        return Objects.hash(id, name);
     }
 
     @Override
     public String toString() {
         return "TripDto{" +
-                "idtrip=" + idtrip +
+                "idtrip=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }
