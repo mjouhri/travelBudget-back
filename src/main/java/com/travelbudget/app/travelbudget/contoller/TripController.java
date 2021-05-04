@@ -32,21 +32,21 @@ public class TripController {
     }
 
     @CrossOrigin
-    @PostMapping(value = "/create")
+    @PostMapping(value = "")
     public void create(HttpServletRequest request, @RequestBody TripDto tripDto) {
         tripService.create(tripDto);
     }
 
     @CrossOrigin
-    @PutMapping(value = "/update")
+    @PutMapping(value = "")
     public void update(HttpServletRequest request, @RequestBody TripDto tripDto) {
         tripService.update(tripDto);
     }
 
     @CrossOrigin
-    @DeleteMapping(value = "/delete")
-    public void delete(HttpServletRequest request, @RequestBody TripDto tripDto) {
-        tripService.delete(tripDto);
+    @DeleteMapping(value = "/{id}")
+    public void delete(HttpServletRequest request, @PathVariable Long id) {
+        tripService.delete(id);
     }
 
 }

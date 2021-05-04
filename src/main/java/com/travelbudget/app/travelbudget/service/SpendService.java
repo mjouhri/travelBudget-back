@@ -39,8 +39,8 @@ public class SpendService {
         spendRepository.update(spendDto.toEntity());
     }
 
-    public void delete(SpendDto spendDto) {
-        spendRepository.delete(spendDto.toEntity());
+    public void delete(Long id) {
+        spendRepository.delete(spendRepository.getById(id));
     }
 
 }

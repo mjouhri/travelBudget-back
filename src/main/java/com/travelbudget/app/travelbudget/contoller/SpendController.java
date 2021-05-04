@@ -31,20 +31,20 @@ public class SpendController {
     }
 
     @CrossOrigin
-    @PostMapping(value = "/create")
+    @PostMapping(value = "")
     public void create(HttpServletRequest request, @RequestBody SpendDto spendDto) {
         spendService.create(spendDto);
     }
 
     @CrossOrigin
-    @PutMapping(value = "/update")
+    @PutMapping(value = "")
     public void update(HttpServletRequest request, @RequestBody SpendDto spendDto) {
         spendService.update(spendDto);
     }
 
     @CrossOrigin
-    @DeleteMapping(value = "/delete")
-    public void delete(HttpServletRequest request, @RequestBody SpendDto spendDto) {
-        spendService.delete(spendDto);
+    @DeleteMapping(value = "/{id}")
+    public void delete(HttpServletRequest request, @PathVariable Long id) {
+        spendService.delete(id);
     }
 }

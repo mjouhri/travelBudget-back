@@ -39,8 +39,8 @@ public class TripService {
         tripRepository.update(tripDto.toEntity());
     }
 
-    public void delete(TripDto tripDto) {
-        tripRepository.delete(tripDto.toEntity());
+    public void delete(Long id) {
+        tripRepository.delete(tripRepository.getById(id));
     }
 
 }
