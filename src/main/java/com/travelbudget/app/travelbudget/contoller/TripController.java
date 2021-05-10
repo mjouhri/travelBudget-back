@@ -34,6 +34,7 @@ public class TripController {
     @CrossOrigin
     @PostMapping(value = "")
     public void create(HttpServletRequest request, @RequestBody TripDto tripDto) {
+        System.out.println(tripDto);
         tripService.create(tripDto);
     }
 

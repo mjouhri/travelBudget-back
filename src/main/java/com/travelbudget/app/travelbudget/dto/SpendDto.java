@@ -4,15 +4,17 @@ import com.travelbudget.app.travelbudget.model.Spend;
 import org.modelmapper.ModelMapper;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class SpendDto {
+public class SpendDto extends BaseDto{
     private Long id;
     private String type;
     private Double amount;
     private String iconType;
     private String description;
-    private LocalDate date;
+    private String date;
     private String country;
     private String paymentMethod;
     //private String users;
@@ -69,10 +71,10 @@ public class SpendDto {
     }
 
     public LocalDate getDate() {
-        return date;
+        return getFormattedLocalDate(this.date);
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

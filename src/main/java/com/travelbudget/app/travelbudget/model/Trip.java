@@ -100,7 +100,7 @@ public class Trip extends BaseModel{
         this.picture = picture;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     public List<Spend> getSpends() {
         return spends;
     }

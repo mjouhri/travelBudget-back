@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public class SpendRepository extends BaseRepository implements Serializable {
-    private static final String GET_ALL_QUERY = "FROM Spend s";
+    private static final String GET_ALL_QUERY = "SELECT S FROM Spend S Order By S.date DESC";
 
     public Spend getById(Long idSpend) {
         Session session = getEntityManager().unwrap(Session.class);

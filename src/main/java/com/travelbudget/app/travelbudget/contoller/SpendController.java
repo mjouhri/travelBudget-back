@@ -31,9 +31,9 @@ public class SpendController {
     }
 
     @CrossOrigin
-    @PostMapping(value = "")
-    public void create(HttpServletRequest request, @RequestBody SpendDto spendDto) {
-        spendService.create(spendDto);
+    @PostMapping(value = "/{idTrip}")
+    public void create(HttpServletRequest request, @RequestBody SpendDto spendDto, @PathVariable Long idTrip) {
+        spendService.create(spendDto, idTrip);
     }
 
     @CrossOrigin
